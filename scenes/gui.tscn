@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://3k0it68200mf"]
+
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_msdiv"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_msdiv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Score: 0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LifeLabelText" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Lifes:"
+
+[node name="LifeLabelNumber" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"

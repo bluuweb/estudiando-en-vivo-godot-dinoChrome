@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bck0jwxissw6r"]
+
+[ext_resource type="Texture2D" uid="uid://d0hl0323pdxg0" path="res://art/parallax-background.webp" id="1_3w7vt"]
+[ext_resource type="PackedScene" uid="uid://dy0jgfwlfo6qu" path="res://scenes/player.tscn" id="1_qc0vh"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_rer25"]
+[ext_resource type="PackedScene" uid="uid://du8kj5dp3qsu1" path="res://scenes/limit_world.tscn" id="3_7alf3"]
+[ext_resource type="PackedScene" uid="uid://3k0it68200mf" path="res://scenes/gui.tscn" id="3_17q7r"]
+[ext_resource type="PackedScene" uid="uid://dm60qw032f6l1" path="res://scenes/enemy.tscn" id="5_r2bra"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_rer25")
+enemy_scene = ExtResource("5_r2bra")
+
+[node name="GUI" parent="." instance=ExtResource("3_17q7r")]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(884, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(363, 166)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_3w7vt")
+
+[node name="TimerVelocity" type="Timer" parent="Parallax2D"]
+wait_time = 5.0
+autostart = true
+
+[node name="Player" parent="." instance=ExtResource("1_qc0vh")]
+position = Vector2(70, 84)
+
+[node name="LimitWorld" parent="." instance=ExtResource("3_7alf3")]
+
+[node name="CollisionShape2D" parent="LimitWorld/floor" index="0"]
+position = Vector2(254, 269)
+
+[node name="TimerEnemy" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Parallax2D/TimerVelocity" to="." method="_on_timer_velocity_timeout"]
+[connection signal="timeout" from="TimerEnemy" to="." method="_on_timer_enemy_timeout"]
+
+[editable path="LimitWorld"]

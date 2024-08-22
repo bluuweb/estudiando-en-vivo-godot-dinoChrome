@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://du8kj5dp3qsu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s288a"]
+size = Vector2(529, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idf2i"]
+size = Vector2(30, 285)
+
+[node name="LimitWorld" type="Node"]
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(246.5, 290.5)
+shape = SubResource("RectangleShape2D_s288a")
+
+[node name="limitRight" type="StaticBody2D" parent="."]
+position = Vector2(509, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limitRight"]
+position = Vector2(-5, 132.5)
+shape = SubResource("RectangleShape2D_idf2i")
+
+[node name="limitLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limitLeft"]
+position = Vector2(-5, 132.5)
+shape = SubResource("RectangleShape2D_idf2i")
