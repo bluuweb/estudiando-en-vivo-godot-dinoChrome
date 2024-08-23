@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bck0jwxissw6r"]
+[gd_scene load_steps=8 format=3 uid="uid://bck0jwxissw6r"]
 
 [ext_resource type="Texture2D" uid="uid://d0hl0323pdxg0" path="res://art/parallax-background.webp" id="1_3w7vt"]
 [ext_resource type="PackedScene" uid="uid://dy0jgfwlfo6qu" path="res://scenes/player.tscn" id="1_qc0vh"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://du8kj5dp3qsu1" path="res://scenes/limit_world.tscn" id="3_7alf3"]
 [ext_resource type="PackedScene" uid="uid://3k0it68200mf" path="res://scenes/gui.tscn" id="3_17q7r"]
 [ext_resource type="PackedScene" uid="uid://dm60qw032f6l1" path="res://scenes/enemy.tscn" id="5_r2bra"]
+[ext_resource type="PackedScene" uid="uid://drubtereee7ul" path="res://scenes/frut.tscn" id="7_8j6tg"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_rer25")
 enemy_scene = ExtResource("5_r2bra")
+fruit_scene = ExtResource("7_8j6tg")
 
 [node name="GUI" parent="." instance=ExtResource("3_17q7r")]
 
@@ -37,7 +39,12 @@ position = Vector2(254, 269)
 wait_time = 5.0
 autostart = true
 
+[node name="TimerFrut" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="Parallax2D/TimerVelocity" to="." method="_on_timer_velocity_timeout"]
 [connection signal="timeout" from="TimerEnemy" to="." method="_on_timer_enemy_timeout"]
+[connection signal="timeout" from="TimerFrut" to="." method="_on_timer_frut_timeout"]
 
 [editable path="LimitWorld"]

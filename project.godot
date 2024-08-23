@@ -13,11 +13,13 @@ config_version=5
 config/name="02-yt-dino-google"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+run/max_fps=60
 config/icon="res://art/icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+GlobalScene="*res://scenes/global.tscn"
 
 [display]
 

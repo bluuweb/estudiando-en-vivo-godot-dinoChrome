@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://dm60qw032f6l1"]
+[gd_scene load_steps=25 format=3 uid="uid://dm60qw032f6l1"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_pjlky"]
 [ext_resource type="Texture2D" uid="uid://d0h2paajpfesg" path="res://art/Free/Main Characters/Mask Dude/Run (32x32).png" id="2_3i8v6"]
 [ext_resource type="Texture2D" uid="uid://cgv3hxu44nkve" path="res://art/Free/Main Characters/Mask Dude/Double Jump (32x32).png" id="2_arnto"]
+[ext_resource type="AudioStream" uid="uid://bn8cwbi5u2akf" path="res://art/music/Air Woosh Underwater.mp3" id="4_n1hca"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_magpo"]
 radius = 93.0
@@ -162,6 +163,9 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qimfd")
 animation = &"hit"
 autoplay = "run"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n1hca")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

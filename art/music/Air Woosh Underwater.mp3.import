@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn8cwbi5u2akf"
+path="res://.godot/imported/Air Woosh Underwater.mp3-ac41a551e5c914da6159969ed0c09b08.mp3str"
+
+[deps]
+
+source_file="res://art/music/Air Woosh Underwater.mp3"
+dest_files=["res://.godot/imported/Air Woosh Underwater.mp3-ac41a551e5c914da6159969ed0c09b08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

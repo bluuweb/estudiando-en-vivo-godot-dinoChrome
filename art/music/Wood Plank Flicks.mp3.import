@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://y70syquvhmko"
+path="res://.godot/imported/Wood Plank Flicks.mp3-d36ab4544f1a71130b9bd47415384c32.mp3str"
+
+[deps]
+
+source_file="res://art/music/Wood Plank Flicks.mp3"
+dest_files=["res://.godot/imported/Wood Plank Flicks.mp3-d36ab4544f1a71130b9bd47415384c32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
