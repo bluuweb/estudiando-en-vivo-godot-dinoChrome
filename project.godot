@@ -29,6 +29,14 @@ window/size/window_width_override=1000
 window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://art/": "yellow",
+"res://scenes/": "red",
+"res://scripts/": "green"
+}
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

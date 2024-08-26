@@ -1,12 +1,18 @@
 extends Node
 
+# 1. Tutorial de godot
+# 2. Background parallax, collision, music, ui, animation, user input
+
 '''
 IDEAS:
+	1. que al chocar el enemigo con la bala, que se genere una animación,
+	y quede muerto en el suelo... así se puede ver cuantos matamos
+	2. que los enemigos se les diminuya la vida
 	OK Mejorar el GUI _process -> estudiando signal
 	OK Terminar de agregar signal para score
-	1. Recorger monedas y ese es el score (score = coins)
+	OK Recorger monedas y ese es el score (score = coins)
 	1. Idea loca: juego de zombies
-	2. Cada x monedas que aparezca un item para aumentar vidas
+	OK Cada x monedas (aumentamos la vida)
 	OK Agregar sonidos de efectos, morir, recoger, etc
 	4. Item que permita disparar por x segundos
 	5. Item que le de protección tipo escudo (estrella de mario), así no le restan vidas por x segundos
@@ -20,6 +26,7 @@ IDEAS:
 @onready var parallax_2d: Parallax2D = $Parallax2D
 @export var enemy_scene: PackedScene
 @export var fruit_scene: PackedScene
+@export var arm_scene: PackedScene
 
 var velocityParallax := 100
 #@export var initial_lifes = 3
@@ -28,9 +35,16 @@ func _ready() -> void:
 	#Global.lifes = initial_lifes
 	Global.score = 0
 	create_enemy()
+	Global.connect("create_arm_score", create_arm)
 
+#var flag_arm = true
 func _process(delta: float) -> void:
 	parallax_2d.scroll_offset.x -= velocityParallax * delta
+	
+	## Cada 5 score aparece el arm
+	#if Global.score != 0 and Global.score % 5 and flag_arm:
+		#create_arm()
+		#flag_arm = false
 
 func _on_timer_velocity_timeout() -> void:
 	# Después de terminar el tiempo se ejecuta este código
@@ -46,7 +60,13 @@ func create_enemy():
 	enemy.position.y = 223
 	add_child(enemy)
 	# Global.score += 1
-	
+
+func create_arm():
+	var arm = arm_scene.instantiate()
+	arm.position.x = 600
+	arm.position.y = 223
+	add_child(arm)
+
 func create_frut():
 	var frut = fruit_scene.instantiate()
 	frut.position.y = 142

@@ -204,3 +204,8 @@ sprite_frames = SubResource("SpriteFrames_nd6ol")
 animation = &"death"
 frame = 4
 frame_progress = 1.0
+
+[node name="TimerBullet" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="TimerBullet" to="." method="_on_timer_bullet_timeout"]

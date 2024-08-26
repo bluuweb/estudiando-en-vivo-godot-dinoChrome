@@ -148,7 +148,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["enemies"]]
 script = ExtResource("1_pjlky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

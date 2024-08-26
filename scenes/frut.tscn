@@ -142,7 +142,7 @@ metadata/_edit_group_ = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_orko8")
 animation = &"idle_banana"
-frame_progress = 0.149081
+frame_progress = 0.106807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)

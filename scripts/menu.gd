@@ -1,6 +1,8 @@
 extends Control
 
 func _ready() -> void:
+	# Deja en focus el botón: grab_focus()
+	$VBoxContainer/HBoxContainer/StartButton.grab_focus()
 	if(Global.lifes <= 0):
 		game_over()
 
